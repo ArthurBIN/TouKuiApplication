@@ -1,4 +1,6 @@
 <view class="All">
+
+  <!-- 发送到github -->
   
   <!-- 顶部选择按钮 -->
   <view class="topBtn_box">
