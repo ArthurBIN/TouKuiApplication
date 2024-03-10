@@ -1,0 +1,72 @@
+<view class="All">
+		
+		<!-- 用户名/头像 -->
+		<view class="userBox">
+		  <view class="TxBox">
+		    <view class="TxImgBox">
+          <image src="{{ userinfo[0].usertx? 'data:image/jpeg;base64,' + userinfo[0].usertx: '../../static/images/userempty.png' }}" mode="aspectFill" class="TxImgBox_img"></image>
+		    </view>
+		    <view class="DZBox" bindtap="godenglu" wx:if="{{userinfo.length == 0}}">登录/注册</view>
+		  </view>
+		  <view class="NameBox" wx:if="{{userinfo.length > 0}}">
+		    <view class="UserName">{{userinfo[0].username}}</view>
+		    <view class="QmBox">{{userinfo[0].styleList? userinfo[0].styleList : "个性签名~"}}</view>
+		  </view>
+		</view>
+
+		
+		<!-- 选择框 -->
+		<view class="chooseBox">
+			<view class="chooseBox_item">
+				<view class="chooseBox_item_text">联网生效日期</view>
+				<view class="chooseBox_item_jiantou">›</view>
+			</view>
+			<view class="chooseBox_item chooseBox_item2">
+				<view class="chooseBox_item_text chooseBox_item_text2">更多功能</view>
+				<view class="chooseBox_item_jiantou chooseBox_item_jiantou2">›</view>
+				<view class="chooseBox_item_item">
+					<view class="chooseBox_item_item_item">
+						<view class="chooseBox_item_item_img">
+							<image src="../../static/images/sh.png" mode=""></image>
+						</view>
+						<view class="chooseBox_item_item_text">设计室</view>
+					</view>
+					<view class="chooseBox_item_item_item">
+						<view class="chooseBox_item_item_img">
+							<image src="../../static/images/sh.png" mode=""></image>
+						</view>
+						<view class="chooseBox_item_item_text">功能键</view>
+					</view>
+					
+					<view class="chooseBox_item_item_item">
+						<view class="chooseBox_item_item_img">
+							<image src="../../static/images/sh.png" mode=""></image>
+						</view>
+						<view class="chooseBox_item_item_text">功能键</view>
+					</view>
+				</view>
+			</view>
+			<view class="chooseBox_item">
+				<view class="chooseBox_item_text">头盔配件商城</view>
+				<view class="chooseBox_item_jiantou">›</view>
+			</view>
+			<view class="chooseBox_item">
+				<view class="chooseBox_item_text">头盔气囊保养</view>
+				<view class="chooseBox_item_jiantou">›</view>
+			</view>
+			<view class="chooseBox_item">
+				<view class="chooseBox_item_text">摄像头视频回放</view>
+				<view class="chooseBox_item_jiantou">›</view>
+			</view>
+			<view class="chooseBox_item">
+				<view class="chooseBox_item_text">我的客服</view>
+				<view class="chooseBox_item_jiantou">›</view>
+			</view>
+			<view class="chooseBox_item" bindtap="goSet">
+				<view class="chooseBox_item_text">设置</view>
+				<view class="chooseBox_item_jiantou">›</view>
+			</view>
+		</view>
+		
+		
+	</view>

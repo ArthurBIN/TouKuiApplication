@@ -1,0 +1,22 @@
+<view class="All">
+
+  <!-- 添加图片按钮 -->
+  <view class="ImgBox">
+    <view class="ImgBox_item" bindtap="postImg">
+      <image src="{{addImg ? addImg : '../../static/images/add.png'}}" mode="aspectFill"/>
+    </view>
+  </view>
+
+  <!-- 作品标题 -->
+  <view class="addText">
+    <input type="text" placeholder="作品标题" bindinput="textinput" value="{{zptext}}" class="addTextInput"/>
+  </view>
+
+  <!-- 作品内容 -->
+  <view class="addContent">
+    <textarea placeholder="记录下美好的一刻" class="contentText" bindinput="contentinput" value="{{zpcontent}}"/>
+  </view>
+
+  <!-- 提交按钮 -->
+  <view class="postBtn" bindtap="postAll">发布</view>
+</view>

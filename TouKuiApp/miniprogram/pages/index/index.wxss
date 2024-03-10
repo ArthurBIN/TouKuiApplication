@@ -1,0 +1,74 @@
+.Swiper_Box {
+	width: 100%;
+	height: 100vh;
+	background-color: #c5c5c5;
+}
+.swiper {
+	width: 100%;
+	height: 100%;
+}
+.Swiper_imgBox {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+}
+.Text_Box {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	top: 12vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	font-size: 4vh;
+	font-weight: 700;
+}
+.KnowMore {
+	font-size: 1.5vh;
+	font-weight: 500;
+	height: 2.5vh;
+	line-height: 2.5vh;
+	border-bottom: 1px solid #000;
+	margin-top: 20rpx;
+}
+.tagBox {
+	width: 100%;
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	bottom: 23vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 2vh;
+}
+.tagBox_item {
+	flex: 1;
+	text-align: center;
+	color: #fff;
+	font-weight: 700;
+}
+.BtnBox {
+	position: absolute;
+	bottom: 5vh;
+	width: 100%;
+}
+.btnItem {
+	width: 80%;
+	margin: 30rpx auto;
+	text-align: center;
+	height: 90rpx;
+	line-height: 90rpx;
+	border-radius: 30rpx;
+	background-color: rgba(0, 0, 0, .3);
+	backdrop-filter: blur(10px);
+	color: #fff;
+	font-size: 1.7vh;
+}
+.btnItem2 {
+	background-color: rgba(255, 255, 255, .3);
+	color: #000;
+}

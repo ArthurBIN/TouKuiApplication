@@ -1,0 +1,80 @@
+
+.All {
+	width: 100%;
+	height: 100vh;
+	position: absolute;
+	background-color: #F5F5F5;
+}
+.yesid {
+	width: 90%;
+	margin: 0 auto;
+	position: relative;
+}
+.tuichu {
+	width: 100%;
+	height: 90rpx;
+	line-height: 90rpx;
+	font-size: 27rpx;
+	border-radius: 20rpx;
+	background-color: #ffffff;
+	margin-top: 25rpx;
+	text-align: left;
+	padding-left: 40rpx;
+	box-sizing: border-box;
+	position: relative;
+}
+.tuichu_tx {
+	height: 170rpx;
+	line-height: 170rpx;
+}
+.jiantou {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	right: 40rpx;
+}
+.TxImgBox {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	right: 70rpx;
+	width: 130rpx;
+  height: 130rpx;
+  border-radius: 75rpx;
+  overflow: hidden;
+}
+.textBox {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	right: 70rpx;
+	font-size: 23rpx;
+	color: #747474;
+}
+.TxImgBox_img {
+	width: 100%;
+	height: 100%;
+}
+.bottomBox {
+  width: 100%;
+  height: 400rpx;
+}
+.textareaBox {
+  width: 90%;
+  margin: 30rpx auto;
+  box-sizing: border-box;
+  padding: 20rpx;
+  height: 200rpx;
+  border-radius: 15rpx;
+  background-color: rgb(241, 241, 241);
+}
+.baocun {
+  width: 90%;
+  text-align: center;
+  height: 80rpx;
+  line-height: 80rpx;
+  background-color: #4187F2;
+  color: white;
+  border-radius: 40rpx;
+  margin: 10rpx auto;
+}

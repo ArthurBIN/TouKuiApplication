@@ -1,0 +1,22 @@
+<view class="Swiper_Box">
+  <swiper class="swiper" circular="{{indicatorDots}}" indicator-dots="{{indicatorDots}}" indicator-color="#fff" interval="{{interval}}" duration="{{duration}}" bindchange="swiperChange">
+    <swiper-item class="swiper-item" wx:for="{{swiperList}}" wx:key="index">
+      <view class="Swiper_imgBox" style="background-image: url({{item.bgi}}); background-size: cover;">
+      </view>
+    </swiper-item>
+  </swiper>
+</view>
+<view class="Text_Box">
+  <view>{{ swiperItemList.text }}</view>
+  <view style="font-size: 2vh; font-weight: 500;">{{ swiperItemList.text2 }}</view>
+  <view class="KnowMore">了解更多</view>
+</view>
+<view class="tagBox">
+  <view class="tagBox_item" style="text-align: right; transform: translateX(60rpx);">{{swiperItemList.tag1}}</view>
+  <view class="tagBox_item">|</view>
+  <view class="tagBox_item" style="text-align: left; transform: translateX(-60rpx);">{{swiperItemList.tag2}}</view>
+</view>
+<view class="BtnBox">
+  <view class="btnItem btnItem2">定制您的MasTer</view>
+  <view class="btnItem">立即佩戴</view>
+</view>

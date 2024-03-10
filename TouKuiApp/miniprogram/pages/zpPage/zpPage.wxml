@@ -1,0 +1,89 @@
+<view class="All">
+
+  <!-- 用户头像,用户名 -->
+  <view class="userBox">
+    <view class="userBoxItem">
+      <view class="fanhui" bindtap="goBack">
+        <van-icon name="arrow-left" color="#000" size="40rpx"/>
+      </view>
+      <view class="userTxBox">
+        <image class="tximg" src="{{zp.usertx? 'data:image/jpeg;base64,' + zp.usertx: '../../static/images/userempty.png' }}" mode="aspectFill"/>
+      </view>
+      <view class="username">{{zp.username}}</view>
+    </view>
+  </view>
+
+  <!-- 作品图片 -->
+  <view class="ImgBox" bindtap="Motai">
+    <image class="zpImg" mode="aspectFill" src="{{'data:image/jpeg;base64,' + zp.zpimg}}"/>
+  </view>
+
+  <!-- 作品标题,内容,时间 -->
+  <view class="TCT">
+
+    <!-- 作品标题 -->
+    <view class="textBox">
+      {{zp.zptitle}}
+    </view>
+
+    <!-- 作品内容 -->
+    <view class="contentBox">
+      {{zp.zpcontent}}
+    </view>
+
+    <view class="Time">
+      {{zp.zptime}}
+    </view>
+
+  </view>
+
+  <!-- 评论 -->
+  <view class="plBox">
+    <view class="plText">全部评论({{plNum}})</view>
+    <view class="noplBox" wx:if="{{isShow}}">
+      <image class="noplimg" mode="widthFix" src="../../static/images/wupl.png"/>
+    </view>
+    <view class="yesplBox" wx:else>
+      <view class="plItem" wx:for="{{pl}}" wx:key="userid">
+        
+        <!-- 头像和用户姓名 -->
+        <view class="txNameBox">
+          <view class="txitemBox">
+            <view class="pltxbox">
+              <image class="pltximg" src="{{item.usertx? 'data:image/jpeg;base64,' + item.usertx: '../../static/images/userempty.png' }}" mode="aspectFill"/>
+            </view>
+            <view class="plName">{{item.username}}</view>
+          </view>
+        </view>
+
+        <!-- 评论内容 -->
+        <view class="plcontent">{{item.content}}</view>
+      
+        <!-- 评论时间 -->
+        <view class="timeBox">{{item.time}}</view>
+
+      </view>
+    </view>
+  </view>
+  
+  <!-- 发布评论 -->
+  <view class="PostPl">
+    <view class="plinput" bindtap="postpl" data-focus="true">说点什么~</view>
+    <view class="bottomIconBox">
+      <van-icon name="like-o" wx:if="{{!isdz}}" info="{{zp.zpdz}}" bindtap="HandleDz" class="bottomIcon"/>
+      <van-icon name="like" style="color: red;" wx:if="{{isdz}}" info="{{zp.zpdz}}" bindtap="CancleDz" class="bottomIcon"/>
+      <van-icon name="chat-o" info="{{plNum}}" class="bottomIcon bottomIcon2"/>
+    </view>
+  </view>
+
+  <view class="bottomBox" wx:if="{{ispl}}">
+    <view class="bottomBoxTopBox"  bindtap="closeinput"></view>
+    <view class="PostPl_input" >
+      <textarea class="plinputtext" focus="{{isFocus}}" placeholder="说些什么~" bindinput="Handleplcontent" value="{{plcontent}}"/>
+      <view class="postPlBtn">
+        <view class="postBtn" bindtap="setPl">发布</view>
+      </view>
+    </view>
+  </view>
+
+</view>

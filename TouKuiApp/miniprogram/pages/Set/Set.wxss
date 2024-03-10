@@ -1,0 +1,34 @@
+
+.All {
+	width: 100%;
+	height: 100vh;
+	position: absolute;
+	background-color: #F5F5F5;
+}
+.yesid {
+	width: 90%;
+	margin: 0 auto;
+	position: relative;
+}
+.tuichu {
+	width: 100%;
+	height: 90rpx;
+	line-height: 90rpx;
+	text-align: center;
+	font-size: 27rpx;
+	border-radius: 20rpx;
+	background-color: #ffffff;
+	margin-top: 25rpx;
+}
+.gnbtn {
+	text-align: left;
+	padding-left: 40rpx;
+	box-sizing: border-box;
+	position: relative;
+}
+.jiantou {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	right: 40rpx;
+}

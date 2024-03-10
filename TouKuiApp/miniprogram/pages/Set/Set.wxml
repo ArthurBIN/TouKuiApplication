@@ -1,0 +1,11 @@
+<view class="All">
+
+	<view class="yesid" wx:if="{{id}}">
+		<view class="tuichu gnbtn" bindtap="goUserInfo">个人信息 <van-icon name="arrow" class="jiantou"/></view>
+		<view class="tuichu" bindtap="tuichu">退出登录</view>
+
+	</view>
+	<view class="yesid">
+		<view class="tuichu" bindtap="Login" wx:if="{{!id}}">立即登录</view>
+	</view>
+</view>

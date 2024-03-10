@@ -1,0 +1,39 @@
+<view class="All">
+
+	<view class="yesid">
+		<view class="tuichu tuichu_tx" bindtap="goUserInfo">头像 
+			<view class="TxImgBox" bindtap="changeTx">
+        <image src="{{ userinfo[0].usertx? 'data:image/jpeg;base64,' + userinfo[0].usertx: '../../static/images/userempty.png' }}" mode="aspectFill" class="TxImgBox_img"></image>
+		  </view>
+			<view class="jiantou">›</view>
+		</view>
+		<view class="tuichu" bindtap="changeName">昵称
+			<view class="textBox">{{userinfo[0].username}}</view>
+			<view class="jiantou">›</view>
+		</view>
+    <van-action-sheet
+      show="{{ show2 }}" 
+      bind:close="onClose2"
+      title="修改用户名">
+      <view class="bottomBox">
+        <textarea value="{{stylist2}}" placeholder="请输入修改后的用户名" bindinput="ListInput2" class="textareaBox"></textarea>
+        <view class="baocun" bindtap="baocun2">保存</view>
+      </view>
+    </van-action-sheet>
+
+		<view class="tuichu" bindtap="changeStyList">个性签名
+			<view class="textBox">{{userinfo[0].styleList? userinfo[0].styleList : "个性签名~"}}</view>
+			<view class="jiantou">›</view>
+		</view>
+    <van-action-sheet
+      show="{{ show }}" 
+      bind:close="onClose"
+      title="修改个性签名">
+      <view class="bottomBox">
+        <textarea value="{{stylist}}" placeholder="展示自己的个性" bindinput="ListInput" class="textareaBox"></textarea>
+        <view class="baocun" bindtap="baocun">保存</view>
+      </view>
+    </van-action-sheet>
+	</view>
+
+</view>

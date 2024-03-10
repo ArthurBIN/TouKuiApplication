@@ -1,0 +1,53 @@
+<view class="All">
+  
+  <!-- 顶部选择按钮 -->
+  <view class="topBtn_box">
+    <view class="topBtn">最新</view>
+  </view>
+
+
+  <view class="kong"></view>
+
+  <!-- 所有作品 -->
+  <view wx:for="{{Allzp}}" wx:key="zpid" class="zpitem" >
+    <view class="zpitem_txBox">
+      <view class="txBox">
+        <image class="usertx" mode="aspectFill" src="{{ item.usertx? 'data:image/jpeg;base64,' + item.usertx: '../../static/images/userempty.png' }}" ></image>
+      </view>
+      <view class="zpusername">{{item.username}}</view>
+    </view>
+    <view data-zpid="{{item.zpid}}" bindtap="goZpitem">
+      <view class="zptitle">{{item.zptitle}}</view>
+      <view class="zpcontent">{{item.zpcontent}}</view>
+    
+      <view class="zpimgBox" >
+        <image class="zpimg" mode="aspectFill" src="{{ item.zpimg? 'data:image/jpeg;base64,' + item.zpimg: '../../static/images/userempty.png' }}" ></image>
+      </view>
+    </view>
+    <view class="bottomBox">
+      <view class="gnbox">
+      
+        <view class="dzbox"  data-zpid="{{item.zpid}}" style="color: rgb(255, 81, 81);" bindtap="HandleDz">
+          <van-icon name="like"/>
+          <view class="dznum">{{item.zpdz}}</view>
+        </view>
+
+        <view class="dzbox">
+          <van-icon name="chat-o" />
+          <view class="dznum">{{item.zppl}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="noZpBox">
+    暂无更多作品~
+  </view>
+
+  <!-- 前往发布页按钮 -->
+  <view class="setNewBox" bindtap="goSetZp">
+    <image src="../../static/images/setnew.png" mode=""/>
+  </view>
+  
+
+</view>
