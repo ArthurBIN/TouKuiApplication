@@ -6,4 +6,4 @@ spring:
     password: 123456
 
 server:
-  address: 192.168.142.46
+  address: 10.223.143.49

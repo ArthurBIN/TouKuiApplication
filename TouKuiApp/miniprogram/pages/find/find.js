@@ -48,14 +48,13 @@ Page({
     let updatedZpid = wx.getStorageSync('updatedZpid');
     let updatedDzNum = wx.getStorageSync('updatedDzNum');
     let updatedCommentNum = wx.getStorageSync('updatedCommentNum');
-    console.log(typeof updatedZpid + ", " + typeof updatedDzNum + ", " + typeof updatedCommentNum);
-  
+    this.getdz();
+    
     if (updatedZpid !== undefined && updatedDzNum !== undefined && updatedCommentNum !== undefined) {
       let updatedAllzp = this.data.Allzp.map(item => {
         if (item.zpid === parseInt(updatedZpid)) {
           item.zpdz = updatedDzNum;
           item.zppl = updatedCommentNum;
-          console.log(1);
         }
         return item;
       });
@@ -63,7 +62,6 @@ Page({
       this.setData({
         Allzp: updatedAllzp
       });
-      this.getdz();
   
       // 清除本地存储的数据
       wx.removeStorageSync('updatedZpid');
@@ -114,7 +112,10 @@ Page({
             this.setData({
               dzList: res.data.data
             })
-            console.log(this.data.dzList);
+          } else {
+            this.setData({
+              dzList: []
+            })
           }
         }
       })
