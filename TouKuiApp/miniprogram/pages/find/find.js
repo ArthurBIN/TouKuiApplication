@@ -17,32 +17,7 @@ Page({
       Allzp: []
     })
     this.loadData(0, 5);
-    wx.getStorage({
-      key: 'id',
-      success: (res)=> {
-        if (res.data) {
-          this.setData({
-            id: res.data
-          })
-          this.getdz();
-          wx.hideLoading();
-        } else {
-          console.log('缓存中没有数据');
-          this.setData({
-            id: "",
-            dzList: []
-          })
-        }
-      },
-      fail: (err)=> {
-        console.log('获取缓存失败', err);
-        this.setData({
-          id: "",
-          dzList: []
-        })
-        wx.hideLoading();
-      }
-    });
+    
   },
   onShow: function () {
     let updatedZpid = wx.getStorageSync('updatedZpid');
@@ -58,7 +33,32 @@ Page({
         }
         return item;
       });
-  
+      wx.getStorage({
+        key: 'id',
+        success: (res)=> {
+          if (res.data) {
+            this.setData({
+              id: res.data
+            })
+            this.getdz();
+            wx.hideLoading();
+          } else {
+            console.log('缓存中没有数据');
+            this.setData({
+              id: "",
+              dzList: []
+            })
+          }
+        },
+        fail: (err)=> {
+          console.log('获取缓存失败', err);
+          this.setData({
+            id: "",
+            dzList: []
+          })
+          wx.hideLoading();
+        }
+      });
       this.setData({
         Allzp: updatedAllzp
       });
