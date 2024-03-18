@@ -12,8 +12,34 @@
 	</view>
 	<view class="controlBtn_Box">
 		<view class="controlBtn_Left">
-			<view class="gn_btn Electricity_Btn"></view>
-			<view class="gn_btn Light_Btn"></view>
+			<view class="gn_btn Electricity_Btn">
+				<view class="ElTopBox">
+					<view class="ElTopBox_Text">
+						<view class="ElText_top">
+							<view style="font-size: 40rpx;display: inline-block;font-weight: 700;">2.5</view> h
+						</view>
+						<view class="ElText_down">可续航时间</view>
+					</view>
+					<view class="ElTopBox_Img">
+						<image src="../../static/images/elimg.png" mode="aspectFit" class="elimg"/>
+					</view>
+				</view>
+
+				<view class="ElDownBox">
+					<view class="RemainderEl">剩余电量{{elNum}}%</view>
+					<view class="RemainderEl_box">
+						<view class="RemainderEl_box_in" style="width: {{100 - elNum}}%"></view>
+					</view>
+				</view>
+			</view>
+			<view class="gn_btn Light_Btn" bindtap="Light">
+				<i class="{{isLight? 'iconfont icon-rihangdengtoujingdadeng FanImg Light': 'iconfont icon-rihangdengtoujingdadeng FanImg'}}"></i>
+				<view class="Fan_Text">
+					<view class="OpenFan">前视灯</view>
+					<view class="OpenFan_down" wx:if="{{isLight}}">关闭前视灯</view>
+					<view class="OpenFan_down" wx:else>打开前视灯</view>
+				</view>
+			</view>
 		</view>
 		<view class="controlBtn_Right">
 			<view class="gn_btn Open_Fan_Btn" bindtap="rotateBox">

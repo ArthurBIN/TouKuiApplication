@@ -2,7 +2,9 @@
 Page({
 
   data: {
-    isRotated: false
+    isRotated: false,
+    isLight: false,
+    elNum: 70
   },
   rotateBox: function() {
     wx.vibrateShort({
@@ -19,6 +21,21 @@ Page({
       }
     })
     
+  },
+  Light() {
+    wx.vibrateShort({
+      success:(res)=> {
+        if (!this.data.isLight) {
+          this.setData({
+            isLight: true
+          });
+        } else {
+          this.setData({
+            isLight: false
+          });
+        }
+      }
+    })
   }
 
 })

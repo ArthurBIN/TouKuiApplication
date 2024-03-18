@@ -1,9 +1,9 @@
-/* pages/control/control.wxss */
+/* 在线链接服务仅供平台体验和调试使用，平台不承诺服务的稳定性，企业客户需下载字体包自行发布使用并做好备份。 */
 @font-face {
 	font-family: "iconfont"; /* Project id 4469500 */
-	src: url('//at.alicdn.com/t/c/font_4469500_bo3ehfuxpov.woff2?t=1710574517440') format('woff2'),
-		 url('//at.alicdn.com/t/c/font_4469500_bo3ehfuxpov.woff?t=1710574517440') format('woff'),
-		 url('//at.alicdn.com/t/c/font_4469500_bo3ehfuxpov.ttf?t=1710574517440') format('truetype');
+	src: url('//at.alicdn.com/t/c/font_4469500_qrevvjtc0j.woff2?t=1710769954799') format('woff2'),
+		 url('//at.alicdn.com/t/c/font_4469500_qrevvjtc0j.woff?t=1710769954799') format('woff'),
+		 url('//at.alicdn.com/t/c/font_4469500_qrevvjtc0j.ttf?t=1710769954799') format('truetype');
   }
   
   .iconfont {
@@ -12,6 +12,14 @@
 	font-style: normal;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+  }
+  
+  .icon-LEDtoujingdadeng:before {
+	content: "\e603";
+  }
+  
+  .icon-rihangdengtoujingdadeng:before {
+	content: "\e602";
   }
   
   .icon-fengshan:before {
@@ -77,6 +85,8 @@
 }
 .Electricity_Btn {
 	height: 300rpx;
+	padding: 0 25rpx;
+	box-sizing: border-box;
 }
 .Open_Fan_Btn {
 	height: 150rpx;
@@ -102,7 +112,7 @@
 .FanImg {
 	margin-left: 50rpx;
 	font-size: 50rpx;
-	transition: transform 1s ease-in-out,color 1s ease-in-out;
+	transition: transform 1s ease-in-out,color 0.5s ease-in-out;
 }
 .Fan_Text {
 	font-size: 32rpx;
@@ -114,4 +124,54 @@
 	font-weight: 500;
 	color: rgb(172, 172, 172);
 	margin-top: 10rpx;
+}
+.ElTopBox {
+	width: 100%;
+	padding-top: 22rpx;
+	position: relative;
+}
+
+.ElText_down {
+	font-size: 23rpx;
+	color: rgb(172, 172, 172);
+}
+.ElTopBox_Img {
+	position: absolute;
+	width: 60rpx;
+	height: 60rpx;
+	top: 30rpx;
+	right: 5rpx;
+}
+.elimg {
+	width: 100%;
+	height: 100%;
+}
+.ElDownBox {
+	margin-top: 90rpx;
+}
+.RemainderEl {
+	margin-bottom: 10rpx;
+	font-size: 23rpx;
+	color: rgb(172, 172, 172);
+}
+.RemainderEl_box {
+	width: 100%;
+	height: 45rpx;
+	border-radius: 13rpx;
+	background: linear-gradient(to right,#9ad4c0, #8cecd4 ); 
+	text-align: right;
+	overflow: hidden;
+}
+.RemainderEl_box_in {
+	background-color: rgb(235, 235, 235);
+	height: 100%;
+	display: inline-block;
+}
+.Light_Btn {
+	display: flex;
+	justify-items: center;
+	align-items: center;
+}
+.Light {
+	color: #99e2db;
 }
