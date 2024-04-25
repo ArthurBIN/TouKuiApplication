@@ -43,7 +43,7 @@
 						<view class="chooseBox_item_item_img">
 							<image src="../../static/images/pl.png" style="width: 60rpx;height: 60rpx; transform: translate(10rpx);" mode=""></image>
 						</view>
-						<view class="chooseBox_item_item_text">被评论3</view>
+						<view class="chooseBox_item_item_text">被评论0</view>
 					</view>
 				</view>
 			</view>

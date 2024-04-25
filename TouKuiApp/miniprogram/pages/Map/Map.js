@@ -325,11 +325,13 @@ Dialog.confirm({
                     title: '删除成功！',
                     duration: 500
                 });
+                that.getUserMarkers(that.data.id); 
+
                 that.setData({
                   show2: false,
                   show3: false
                 })
-                that.getUserMarkers(that.data.id); // 使用 that 来引用正确的 this
+                console.log(1);
             } else {
                 wx.showToast({
                     title: res.data.msg,
