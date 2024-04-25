@@ -1,9 +1,167 @@
 <!-- index.wxml -->
+
 <view class="container">
   <map id="map" 
   latitude="{{latitude}}" 
   longitude="{{longitude}}" 
   show-location="{{true}}" 
+  markers="{{markers}}"
+  scale="{{mapsize}}"
+  bindmarkertap="markerTap"
   style="width: 100%; height: 100vh;"
   ></map>
+
+
+  <view wx:if="{{ show }}"  class="popupBox">
+    <view class="popup">
+      <!-- 弹出框关闭按钮 -->
+      <van-icon name="close" class="gb_Box" bind:tap="closeMarkers" />
+      <scroll-view scroll-y scrollbar-y="false" style="width: 100%;height: 100%;">
+        <view wx:for="{{wishLocation}}" wx:key="id" data-id="{{item.id}}" class="popupBoxItem">
+          <view class="popup_Logo">
+            <image src="../../static/images/wz.png" mode="widthFix"/>
+          </view>
+          <view>{{item.localname}}</view>
+          <van-icon class="deleteMarker" bind:tap="deleteMarker" data-id="{{item.id}}" name="cross" />
+        </view>
+        <view style="width: 100%;height: 20rpx;"></view>
+      </scroll-view>
+    </view>
+  </view>
+
+  <view wx:if="{{ footshow }}"  class="popupBox">
+    <view class="popup">
+      <!-- 弹出框关闭按钮 -->
+      <van-icon name="close" class="gb_Box" bind:tap="closeFoots" />
+      <scroll-view scroll-y scrollbar-y="false" style="width: 100%;height: 100%;">
+        <view wx:for="{{foots}}" wx:key="id" data-id="{{item.id}}" class="popupBoxItem">
+          <view class="popup_Logo">
+            <image src="../../static/images/wz.png" mode="widthFix"/>
+          </view>
+          <view>{{item.localname}}</view>
+          <van-icon class="deleteMarker" bind:tap="deleteMarker" data-id="{{item.id}}" name="cross" />
+        </view>
+        <view style="width: 100%;height: 20rpx;"></view>
+      </scroll-view>
+    </view>
+  </view>
+
+  <van-dialog style="z-index: 9999;" id="van-dialog" />
+
+
+  <!-- 底部搜索栏 -->
+  <view class="Search_Box">
+
+    <view class="dwBox2 dwBox5" bind:tap="reverseGeocoding">
+      <image src="../../static/images/addz.png" mode="widthFix"/>
+    </view>
+
+    <view class="dwBox2 dwBox4" bind:tap="minusScale">
+      <view class="dwBox2icon" style="font-size: 15rpx;font-weight: 700;">—</view>
+    </view>
+
+    <view class="dwBox2 dwBox3" bind:tap="addScale">
+      <van-icon name="plus" class="dwBox2icon"/>
+    </view>
+
+    <view class="dwBox" bind:tap="getuserlocal">
+      <image src="../../static/images/dw.png" mode="widthFix"/>
+    </view>
+
+    <view class="dwBox2" bind:tap="cancleAdd" wx:if="{{isLocal}}">
+      <van-icon name="cross" class="dwBox2icon"/>
+    </view>
+  
+    <!-- 无内容显示的搜索框 -->
+    <view class="Search_InputBox" bindtap="goSearch" wx:if="{{!isLocal}}">
+      <view class="SsImgBox">
+        <image src="../../static/images/ss.png" mode="widthFix"/>
+      </view>
+      <view class="SsContentBox" wx:if="{{SearchValue == '' || SearchValue == null }}">添加心愿地点吧~</view>
+      <view class="SsContentBox" wx:else style="color: black;">{{SearchValue}}</view>
+    </view>
+
+    <!-- 有内容显示的搜索框 -->
+    <view class="Search_InputBox2_Big" wx:else>
+      <view class="Search_InputBox2" bindtap="goSearch">
+        <view class="SsImgBox">
+          <image src="../../static/images/ss.png" mode="widthFix"/>
+        </view>
+        <view class="SsContentBox" style="color: black;">{{SearchValue}}</view>
+      </view>
+      <view class="Search_Box_gnBox_btn" bindtap="addMarkers">
+        <!-- <van-icon class="Search_Box_gnBox_btn_icon" name="plus" /> -->
+        <view class="Search_Box_gnBox_btn_icon">添加</view>
+      </view>
+    </view>
+    
+    <!-- <view class="Search_Box_gnBox">
+      <van-button class="Search_Box_gnBox_btn2" bind:tap="openMarkers"  round block type="info">查看</van-button>
+    </view> -->
+    <view class="Search_Box_bottomBox">
+      <view class="Search_Box_bottomBox_item" bind:tap="openMarkers">
+        <view class="Search_Box_bottomBox_item_content">
+          <view class="Search_Box_bottomBox_item_Title">{{wishLocationNum}}</view>
+          <view class="Search_Box_bottomBox_item_text">心愿地点</view>
+        </view>
+      </view>
+      <view class="Search_Box_bottomBox_item" bind:tap="openFoots">
+        <view class="Search_Box_bottomBox_item_content">
+          <view class="Search_Box_bottomBox_item_Title">{{footsNum}}</view>
+          <view class="Search_Box_bottomBox_item_text">已完成心愿</view>
+        </view>
+      </view>
+    </view>
+  
+  </view>
+
+  <van-action-sheet
+    show="{{ show2 }}"
+    actions="{{ actions }}"
+    bind:close="onClose"
+    bind:select="onSelect"
+  />
+  <van-action-sheet
+    show="{{ show3 }}"
+    actions="{{ actions3 }}"
+    bind:close="onClose3"
+    bind:select="onSelect3"
+  />
+  
+  <view class="Search_Page" wx:if="{{isSearch}}">
+
+    <!-- 顶部搜索框+标题 -->
+    <view class="Sp_TopBox">
+
+      <!-- 顶部标题 -->
+      <view class="Sp_TopBox_top">
+        <view class="Sp_TopBox_top_title">
+          <view class="fh_Icon" bindtap="goBack">
+            <van-icon name="arrow-left" color="#000" size="40rpx"/>
+          </view>
+          <view class="fh_text">选择心愿地点</view>
+        </view>
+      </view>
+
+      <!-- 搜索框 -->
+      <view class="Sp_SearchBox_All">
+        <input placeholder="输入地名关键字" focus="{{focus}}" value="{{SearchValue}}" bindinput="onInput" class="Sp_InputBox"/>
+        <view class="Sp_AddBtn" bind:tap="cancleAdd">取消</view>
+      </view>
+    </view>
+    
+    <!-- 显示搜索结果 -->
+    <view class="Sp_ResultBox">
+      <scroll-view scroll-y style="height: 80vh;width: 100%;">
+        <view wx:for="{{locations}}" wx:key="index" class="Sp_ResultItem" bindtap="selectLocation" data-index="{{index}}">
+          <view class="Sp_ResultItem_img">
+            <image src="../../static/images/wz.png" mode="widthFix"/>
+          </view>
+          <view>{{item}}</view>
+        </view>
+      </scroll-view>
+    </view>
+
+  </view>
+
 </view>

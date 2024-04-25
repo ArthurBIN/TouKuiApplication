@@ -1,12 +1,15 @@
 <view class="Swiper_Box">
-  <swiper class="swiper" circular="{{indicatorDots}}" indicator-dots="{{indicatorDots}}" indicator-color="#fff" interval="{{interval}}" duration="{{duration}}" bindchange="swiperChange">
-    <swiper-item class="swiper-item" wx:for="{{swiperList}}" wx:key="index">
-      <view class="Swiper_imgBox" style="background-image: url({{item.bgi}}); background-size: cover;">
+  <swiper class="swiper" circular="{{indicatorDots}}" indicator-dots="{{indicatorDots}}" indicator-color="#99999" interval="{{interval}}" duration="{{duration}}" bindchange="swiperChange">
+    <swiper-item class="swiper-item" wx:for="{{swiperList}}" style="background-color: rgb(255, 255, 255);" wx:key="index">
+      <view class="Swiper_imgBox">
+        <image src="{{item.bgi}}" mode="widthFix"/>
       </view>
     </swiper-item>
   </swiper>
 </view>
-<view class="Text_Box">
+
+
+<view class="Text_Box" >
   <view>{{ swiperItemList.text }}</view>
   <view style="font-size: 2vh; font-weight: 500;">{{ swiperItemList.text2 }}</view>
   <view class="KnowMore">了解更多</view>

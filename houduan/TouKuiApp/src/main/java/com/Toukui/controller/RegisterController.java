@@ -17,6 +17,7 @@ import java.util.Random;
 
 @Slf4j
 @RestController
+@CrossOrigin
 public class RegisterController {
 
     @Autowired
@@ -24,7 +25,6 @@ public class RegisterController {
 
 //    登录
     @PostMapping("/login")
-    @CrossOrigin
     public Result login(@RequestBody User user) {
         log.info("用户账号:{}", user.getAccount());
         log.info("用户密码:{}", user.getPassword());
@@ -45,7 +45,6 @@ public class RegisterController {
 
 //    添加用户信息
     @PostMapping("/register")
-    @CrossOrigin
     public Result Register(@RequestBody User user) {
         log.info("员工注册：{}", user);
 
@@ -77,7 +76,6 @@ public class RegisterController {
     获取用户的所有信息
      */
     @GetMapping("/getuserinfo")
-    @CrossOrigin
     private Result getUserInfoByZh(String id) {
         List<User> userinfo = userService.getUserInfo(id);
         log.info("用户id：{}", id);
@@ -93,7 +91,6 @@ public class RegisterController {
     更改用户个性签名
      */
     @PostMapping("/stylelist")
-    @CrossOrigin
     private Result changeStyleList(String id, String stylelist) {
         int res = userService.changeStyleList(id, stylelist);
         if (res > 0) {
@@ -107,7 +104,6 @@ public class RegisterController {
     更改用户名
      */
     @PostMapping("/username")
-    @CrossOrigin
     private Result changeName(String id, String username) {
         int res = userService.changeName(id, username);
         if (res > 0) {
@@ -121,7 +117,6 @@ public class RegisterController {
     更改用户头像
      */
     @PostMapping("/usertx")
-    @CrossOrigin
     private Result changeTx(String id, @RequestParam("file") MultipartFile tximg) {
         try {
             byte[] originalImageData = tximg.getBytes();

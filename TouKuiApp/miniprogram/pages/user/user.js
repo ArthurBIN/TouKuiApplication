@@ -5,7 +5,8 @@ Page({
     pre:app.globalData.pre,
     qianm: "个性签名~",
     userinfo: [],
-    id: ""
+    id: "",
+    isShow: false
   },
   
   onShow() {
@@ -15,28 +16,31 @@ Page({
       success: function (res) {
         if (res.data) {
           self.setData({
-            id: res.data
+            id: res.data,
+            isShow: true
           })
+          console.log(self.data.id);
+
           self.getUserInfo();
         } else {
           // 缓存中没有数据的情况下的处理逻辑
           console.log('缓存中没有数据');
           self.setData({
-            userinfo: []
+            userinfo: [],
+            isShow: false
           })
         }
       },
       fail: function (err) {
         console.log('获取缓存失败', err);
         self.setData({
-          userinfo: []
+          userinfo: [],
+          isShow: false
         })
       }
     });
   },
   getUserInfo() {
-    console.log(1);
-    console.log(this.data.id);
     if (this.data.id) {
       wx.request({
         url: this.data.pre + '/getuserinfo?id=' + this.data.id,

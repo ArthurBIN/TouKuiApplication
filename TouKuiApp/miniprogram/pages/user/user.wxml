@@ -21,31 +21,33 @@
 				<view class="chooseBox_item_text">联网生效日期</view>
 				<view class="chooseBox_item_jiantou">›</view>
 			</view>
-			<view class="chooseBox_item chooseBox_item2">
-				<view class="chooseBox_item_text chooseBox_item_text2">更多功能</view>
-				<view class="chooseBox_item_jiantou chooseBox_item_jiantou2">›</view>
+
+			<view class="chooseBox_item chooseBox_item2" wx:if="{{isShow}}">
+				<view class="chooseBox_item_text chooseBox_item_text2">作品管理</view>
+				<!-- <view class="chooseBox_item_jiantou chooseBox_item_jiantou2">›</view> -->
 				<view class="chooseBox_item_item">
 					<view class="chooseBox_item_item_item">
 						<view class="chooseBox_item_item_img">
-							<image src="../../static/images/sh.png" mode=""></image>
+							<image src="../../static/images/zp.png" mode=""></image>
 						</view>
-						<view class="chooseBox_item_item_text">设计室</view>
+						<view class="chooseBox_item_item_text">作品</view>
 					</view>
 					<view class="chooseBox_item_item_item">
 						<view class="chooseBox_item_item_img">
-							<image src="../../static/images/sh.png" mode=""></image>
+							<image src="../../static/images/dz.png" style="width: 60rpx;height: 60rpx; transform: translate(10rpx);" mode=""></image>
 						</view>
-						<view class="chooseBox_item_item_text">功能键</view>
+						<view class="chooseBox_item_item_text">被赞{{userinfo[0].dz}}</view>
 					</view>
 					
 					<view class="chooseBox_item_item_item">
 						<view class="chooseBox_item_item_img">
-							<image src="../../static/images/sh.png" mode=""></image>
+							<image src="../../static/images/pl.png" style="width: 60rpx;height: 60rpx; transform: translate(10rpx);" mode=""></image>
 						</view>
-						<view class="chooseBox_item_item_text">功能键</view>
+						<view class="chooseBox_item_item_text">被评论3</view>
 					</view>
 				</view>
 			</view>
+
 			<view class="chooseBox_item">
 				<view class="chooseBox_item_text">头盔配件商城</view>
 				<view class="chooseBox_item_jiantou">›</view>

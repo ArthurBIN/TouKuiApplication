@@ -31,7 +31,12 @@
     "van-tree-select":"./miniprogram_npm/vant-weapp/tree-select/index",
     "van-tag": "./miniprogram_npm/vant-weapp/tag/index",
     "van-loading": "./miniprogram_npm/vant-weapp/loading/index",
-    "van-icon": "./miniprogram_npm/vant-weapp/icon/index"
+    "van-icon": "./miniprogram_npm/vant-weapp/icon/index",
+    "van-popup": "./miniprogram_npm/vant-weapp/popup/index",
+    "van-dialog": "./miniprogram_npm/vant-weapp/dialog/index",
+    "van-action-sheet": "./miniprogram_npm/vant-weapp/action-sheet/index",
+    "van-slider": "./miniprogram_npm/vant-weapp/slider/index",
+    "van-notify": "./miniprogram_npm/vant-weapp/notify/index"
   },
   "tabBar": {
     "color": "#999",

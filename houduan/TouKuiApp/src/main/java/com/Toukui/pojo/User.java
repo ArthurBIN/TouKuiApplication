@@ -14,4 +14,5 @@ public class User {
     private String password;
     private String styleList;
     private byte[] usertx;
+    private Integer dz;
 }
